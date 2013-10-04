@@ -1,0 +1,17 @@
+# The humans responsible & technology colophon
+# humanstxt.org
+
+
+# TEAM
+
+    <name> -- <role> -- <twitter>
+
+# THANKS
+
+    H5BP - http://html5boilerplate.com/
+    Yeoman - http://yeoman.io/
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, jQuery, Modernizr
+    Yeoman, Grunt, Bower, Drought

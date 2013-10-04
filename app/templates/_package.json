@@ -1,0 +1,16 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "time-grunt": "latest",
+    "grunt-notify": "latest"
+  }
+}
