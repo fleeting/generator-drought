@@ -1,7 +1,11 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var chalk = require('chalk');
+var rimraf = require('rimraf');
 var yeoman = require('yeoman-generator');
+var git = require('../util/git');
+var spawn = require('../util/spawn');
 
 
 var DroughtGenerator = module.exports = function DroughtGenerator(args, options, config) {
@@ -71,13 +75,42 @@ DroughtGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-DroughtGenerator.prototype.app = function app() {
-  this.mkdir('css');
-  this.mkdir('js');
-  this.mkdir('images');
+DroughtGenerator.prototype.usegit = function usegit() {
+  var done = this.async();
 
-  this.copy('humans.txt', 'humans.txt');
+  console.log(chalk.red('\n----------------------------\n'));
+  console.log([
+chalk.cyan(',------.                               ,--.       ,--.'),
+chalk.cyan('|  .-.  \\ ,--.--. ,---. ,--.,--. ,---. |  ,---. ,-\'  \'-.'),
+chalk.cyan('|  |  \\  :|  .--\'| .-. ||  ||  || .-. ||  .-.  |\'-.  .-\''),
+chalk.cyan('|  \'--\'  /|  |   \' \'-\' \'\'  \'\'  \'\' \'-\' \'|  | |  |  |  |'),
+chalk.cyan('`-------\' `--\'    `---\'  `----\' .`-  / `--\' `--\'  `--\''),
+chalk.cyan('                                `---\'                    ')].join('\n'));
+
+  console.log('Now I\'m going to do a quick clone of the latest Drought files...');
+
+  git.clone('git@github.com:fleeting/Drought.git', '.', function() {
+    console.log(chalk.green('Drought successfully cloned.'));
+    done();
+  });
+};
+
+DroughtGenerator.prototype.app = function app() {
+  console.log(chalk.red('\n----------------------------\n'));
+
+  var done = this.async();
+  console.log('I\'ve got Drought so lets customize this build based on your earlier needs.');
+
+  //this.copy('humans.txt', 'humans.txt');
   this.template('_package.json', 'package.json');
+
+  if(!this.confirmSASS) {
+    rimraf('css/mixins.scss', function () { });
+    rimraf('css/normalize.scss', function () { });
+    rimraf('css/style.scss', function () { });
+
+    console.log(chalk.green('You aren\'t using SASS for this project so I\'ve removed those files.'));
+  }
 
   if(this.confirmBower) {
     this.template('_bower.json', 'bower.json');
@@ -86,4 +119,6 @@ DroughtGenerator.prototype.app = function app() {
   if(this.confirmGrunt) {
     this.copy('gruntfile.js', 'gruntfile.js');
   }
+
+  done();
 };

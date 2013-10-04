@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "description": "A generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "yeoman",
+    "drought",
+    "monkeecreate",
+    "generator"
   ],
   "homepage": "https://github.com/fleeting/generator-drought",
   "bugs": "https://github.com/fleeting/generator-drought/issues",
@@ -21,7 +25,10 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.13.0"
+    "yeoman-generator": "~0.13.0",
+    "chalk": "~0.2.1",
+    "async": "~0.2.9",
+    "rimraf": "~2.2.2"
   },
   "devDependencies": {
     "mocha": "~1.12.0"
