@@ -89,7 +89,7 @@ chalk.cyan('                                `---\'                    ')].join('
 
   console.log('Now I\'m going to do a quick clone of the latest Drought files...');
 
-  git.clone('git@github.com:fleeting/Drought.git', '.', function() {
+  git.clone('git://github.com/fleeting/Drought.git', '.', function() {
     console.log(chalk.green('Drought successfully cloned.'));
     done();
   });
