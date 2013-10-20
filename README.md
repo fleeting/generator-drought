@@ -1,6 +1,6 @@
 * This is currently a WIP and incomplete. Don't recommend using just yet.
 
-# generator-drought [![Build Status](https://secure.travis-ci.org/fleeting/generator-drought.png?branch=master)](https://travis-ci.org/fleeting/generator-drought)
+# generator-drought [![Build Status](https://secure.travis-ci.org/fleeting/generator-drought.png?branch=master)](https://travis-ci.org/fleeting/generator-drought) [![Dependency Status](https://david-dm.org/fleeting/generator-drought.png)](https://david-dm.org/fleeting/generator-drought/)
 
 A generator for [Yeoman](http://yeoman.io).
 
